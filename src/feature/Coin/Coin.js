@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 export default function Coin(props) {
   // console.warn(props)
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state) => state.countx.value);
   return (
     <div>
       <h1>Coin Count: {count}</h1>

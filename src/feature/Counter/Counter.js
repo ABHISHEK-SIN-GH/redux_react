@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "./CounterBySlice";
+import { decrement, increment, incrementByAmount } from "./CounterBySlice";
 function Counter() {
-  // const [count, setCount] = useState(0)
-  // const count = useSelector((state)=>state.counter.count)
-  const count = useSelector((state) => state.counter.value);
+
+  const count = useSelector((state) => state.countx.value);
+  const themeColor = useSelector((state) => state.themx.value);
+  
   const dispatch = useDispatch();
   return (
       <div>
@@ -17,10 +18,11 @@ function Counter() {
     >
       This react-redux project
     </h1><br/>
-    <div style={{background:"red", display:"inline-block"}}>
-      <button style={{height:"50px",width:"50px"}} onClick={()=>{dispatch(decrement())}}>minus</button>
-      <span style={{minWidth:"50px",display:"inline-block"}} className="value">{count}</span>
-      <button style={{height:"50px",width:"50px"}} onClick={()=>{dispatch(increment())}}>plus</button>
+    <div style={{background:themeColor, display:"inline-block"}}>
+      <h1 className="value">{count}</h1>
+      <button style={{height:"80px",width:"100px"}} onClick={()=>{dispatch(decrement())}}>minus</button>
+      <button style={{height:"80px",width:"100px"}} onClick={()=>{dispatch(increment())}}>plus</button>
+      <button style={{height:"80px",width:"100px"}} onClick={()=>{dispatch(incrementByAmount(10))}}>plus by 10</button>
     </div>
     </div>
     // <div>
